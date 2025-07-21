@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Router>
+      {/* <Router> */}
       
         <Switch>
         <Route path="/" exact component={Page} /> 
@@ -23,7 +23,7 @@ function App() {
         /> 
 
         </Switch>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }
