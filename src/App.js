@@ -12,7 +12,8 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <Router> */}
+      {/* <Router> dasdasdasd*/}
+      
         <Switch>
         <Route path="/" component={Page} /> 
         <Route path="/search" component={Search} /> 
