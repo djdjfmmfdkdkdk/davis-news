@@ -12,10 +12,10 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <Router> dasdasdasd*/}
+      <Router>
       
         <Switch>
-        <Route path="/" component={Page} /> 
+        <Route path="/" exact component={Page} /> 
         <Route path="/search" component={Search} /> 
         <Route path="/:id" render={({ match }) => (
           <Page key={match.params.id} />
@@ -23,7 +23,7 @@ function App() {
         /> 
 
         </Switch>
-      {/* </Router> */}
+      </Router>
     </>
   );
 }
