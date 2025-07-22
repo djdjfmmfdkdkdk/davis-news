@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './Navbar';
+import Navbar  from './Navbar';
 import { Page } from './Page';
 import { Search } from './Search';
 import {
@@ -11,7 +11,6 @@ import {
 function App() {
   return (
     <>
-      <div>hi</div>
       <Navbar />
       {/* <Router> */}
       
