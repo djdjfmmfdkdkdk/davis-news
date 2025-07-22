@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import MainArticle from './MainArticle';
 import Article from './Article';
 import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 // import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 
@@ -33,16 +34,19 @@ export const Page = () => {
 
   if (!mainArticle) return <p>Loading...</p>;
 
-  return (<>
+  return (
+  <>
     <MainArticle article={mainArticle} />
-    <Grid container spacing={2}>
-      {otherArticles.length > 0 && otherArticles.map((article, index) => (
-        <Grid item xs={12} sm={6} md={4} key={index}>
-          <Article article={article} />
-        </Grid>
-      ))} 
-    </Grid>   
-      </>);
+    <Container maxWidth="lg" sx={{ py: 4 }}>
+      <Grid container spacing={2}>
+        {otherArticles.length > 0 && otherArticles.map((article, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Article article={article} />
+          </Grid>
+        ))} 
+      </Grid>  
+    </Container> 
+  </>);
 };
 
 

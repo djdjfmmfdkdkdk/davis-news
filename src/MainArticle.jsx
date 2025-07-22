@@ -13,6 +13,7 @@ export default function MainArticle({ article }) {
 
   const { urlToImage, title, description, publishedAt, url } = article;
   const imgSrc = urlToImage || PLACEHOLDER;
+  const noDescription = description || "No description available.";
   return (
     <Card
       variant="outlined"
@@ -64,7 +65,7 @@ export default function MainArticle({ article }) {
         </Typography>
 
         <Typography variant="h6" sx={{ mb: 2 }}>
-          {description}
+          {noDescription}
         </Typography>
 
         <Typography sx={{ opacity: 0.9, fontSize: 14, mb: 2 }}>
