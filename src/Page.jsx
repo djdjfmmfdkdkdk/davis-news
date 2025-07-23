@@ -4,33 +4,40 @@ import MainArticle from './MainArticle';
 import Article from './Article';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-// import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useParams } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
 
 export const Page = () => {
-  // console.log(REACT_APP_NEWS_API_KEY);
+  const { id } = useParams();
+
+  const [visibleCount, setVisibleCount] = useState(9);
   const key = '5dbd5c89f7b04eb9a46a3014fdaf6738';
   const [mainArticle, setMainArticle] = useState(null);
   const [otherArticles, setOtherArticles] = useState([]);
   useEffect(() => {
+      // console.log(id);
+
     const fetchTop = async () => {
-      const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${key}`;
+      // const url = 'https://newsapi.org/v2/top-headlines?' + 'country=us' + `&category=${id}` + `&apiKey=${key}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${key}`;
+      if (id) url += `&category=${encodeURIComponent(id)}`;
       try {
         const res = await fetch(url);
         const json = await res.json();
         const items = json.articles || [];
         if (items.length > 0) {
           setMainArticle(items[0]);
-          setOtherArticles(items.slice(1, 10));
+          setOtherArticles(items.slice(1, 16));
         }
       } catch (e) {
         console.error('Fetch error:', e);
       } 
     };
     fetchTop();
-  }, []);
+  }, [id]);
 
-  // console.log(article);
 
   if (!mainArticle) return <p>Loading...</p>;
 
@@ -38,14 +45,22 @@ export const Page = () => {
   <>
     <MainArticle article={mainArticle} />
     <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Grid container spacing={2}>
-        {otherArticles.length > 0 && otherArticles.map((article, index) => (
+      <Grid container spacing={5}>
+        {otherArticles.slice(0, visibleCount).map((article, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Article article={article} />
           </Grid>
         ))} 
       </Grid>  
     </Container> 
+
+    {visibleCount < otherArticles.length && (
+      <Box sx={{ textAlign: 'center', mt: 2, mb: 4}}>
+        <Button variant="contained" onClick={() => setVisibleCount(prev => prev + 3)}>
+          Load More
+        </Button>
+      </Box>
+    )}
   </>);
 };
 

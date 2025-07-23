@@ -14,6 +14,8 @@ export default function MainArticle({ article }) {
   const { urlToImage, title, description, publishedAt, url } = article;
   const imgSrc = urlToImage || PLACEHOLDER;
   const noDescription = description || "No description available.";
+  const dateOnly = publishedAt.split('T')[0]
+
   return (
     <Card
       variant="outlined"
@@ -69,7 +71,11 @@ export default function MainArticle({ article }) {
         </Typography>
 
         <Typography sx={{ opacity: 0.9, fontSize: 14, mb: 2 }}>
-          {publishedAt.split('T')[0]}
+          {new Date(dateOnly).toLocaleDateString("en-GB", {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          })}
         </Typography>
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1 }}>
