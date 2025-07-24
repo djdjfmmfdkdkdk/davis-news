@@ -9,11 +9,11 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
 
-export const Page = () => {
+export const Page = ({ country, onCountryChange }) => {
   const { id } = useParams();
-
+  console.log(country);
   const [visibleCount, setVisibleCount] = useState(9);
-  const key = '5dbd5c89f7b04eb9a46a3014fdaf6738';
+  const key = '9f4962393c4f41a9984fe2ce1bb0a267';
   const [mainArticle, setMainArticle] = useState(null);
   const [otherArticles, setOtherArticles] = useState([]);
   useEffect(() => {
@@ -43,7 +43,8 @@ export const Page = () => {
 
   return (
   <>
-    <MainArticle article={mainArticle} />
+  
+    {/* <MainArticle article={mainArticle} />
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Grid container spacing={5}>
         {otherArticles.slice(0, visibleCount).map((article, index) => (
@@ -52,10 +53,26 @@ export const Page = () => {
           </Grid>
         ))} 
       </Grid>  
-    </Container> 
+    </Container>  */}
+    <Container maxWidth="lg" sx={{py: 4 }}>
+      <Grid container sx={{ alignItems: 'center', gap: '58px' }}>
+        {/* Main article spanning the full width */}
+        <Grid xs={12} sx={{ width: '100%' }}>
+          <MainArticle article={mainArticle} />
+        </Grid>
+
+        {/* Secondary articles in a 3-column layout */}
+        {otherArticles.slice(0, visibleCount).map((article, index) => (
+          <Grid xs={12} sm={6} md={4} key={index} >
+            <Article article={article} />
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+
 
     {visibleCount < otherArticles.length && (
-      <Box sx={{ textAlign: 'center', mt: 2, mb: 4}}>
+      <Box sx={{ textAlign: 'center', mt: 2, mb: 2}}>
         <Button variant="contained" onClick={() => setVisibleCount(prev => prev + 3)}>
           Load More
         </Button>

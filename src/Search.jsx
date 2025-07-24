@@ -11,9 +11,9 @@ import Button from '@mui/material/Button';
 
 
 
-export const Search = ( ) => {
+export const Search = ({ country, onCountryChange }) => {
+  console.log(country);
   const { pathname } = useLocation(); 
-  console.log(pathname);
   // const keyword = 'trump'
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -21,11 +21,15 @@ export const Search = ( ) => {
   const [loading, setLoading] = useState(false);
   const [otherArticles, setOtherArticles] = useState([]);
 
-  const key = '5dbd5c89f7b04eb9a46a3014fdaf6738'; 
+  const key = '9f4962393c4f41a9984fe2ce1bb0a267'; 
 
   const handleSearch = (query) => {
     setKeyword(query);
   };
+
+    useEffect(() => {
+      setVisibleCount(3);
+    }, [keyword]);
 
     useEffect(() => {
         // console.log(id);
@@ -84,7 +88,7 @@ export const Search = ( ) => {
           )}
         </Container> 
         {visibleCount < otherArticles.length && (
-          <Box sx={{ textAlign: 'center', mt: 2, mb: 4 }}>
+          <Box sx={{ textAlign: 'center', mt: 2, mb: 2 }}>
             <Button variant="contained" onClick={() => setVisibleCount(prev => prev + 3)}>
               Load More
             </Button>
