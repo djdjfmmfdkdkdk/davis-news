@@ -294,6 +294,7 @@ function Navbar({ country, onCountryChange }) {
             anchorEl={countryMenuAnchorEl}
             open={countryMenuOpen}
             onClose={handleCountryMenuClose}
+            disableScrollLock={true}
             // slotProps={{
             //   list: {
             //     "aria-labelledby": "country-button",
