@@ -86,6 +86,7 @@ export default function SearchArticle({ article }) {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
+          color='inherit'
         >
           Read More
         </Button>

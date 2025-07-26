@@ -61,12 +61,26 @@ export default function MainArticle({ article }) {
       >
         <Typography
           gutterBottom
-          sx={{ fontSize: { xs: 28, md: 36 }, fontWeight: 700 }}
+          sx={{ 
+            fontSize: { xs: 28, md: 36, display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis', }, fontWeight: 700 }}
         >
           {title}
         </Typography>
 
-        <Typography variant="h6" sx={{ mb: 2 }}>
+        <Typography variant="h6" 
+            sx={{ 
+              mb: 2,
+              display: '-webkit-box',
+              WebkitLineClamp: 3, // you can set this to 2 or 3 lines
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              minHeight: '4rem'
+            }}>
           {noDescription}
         </Typography>
 
@@ -84,6 +98,7 @@ export default function MainArticle({ article }) {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
+            color='inhert'
             sx={{ ml: "auto" }} 
           >
             Read More

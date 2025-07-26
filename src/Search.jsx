@@ -89,7 +89,7 @@ export const Search = ({ country, onCountryChange }) => {
         </Container> 
         {visibleCount < otherArticles.length && (
           <Box sx={{ textAlign: 'center', mt: 2, mb: 2 }}>
-            <Button variant="contained" onClick={() => setVisibleCount(prev => prev + 3)}>
+            <Button variant="contained" color='inherit' onClick={() => setVisibleCount(prev => prev + 3)}>
               Load More
             </Button>
           </Box>

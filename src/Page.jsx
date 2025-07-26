@@ -55,15 +55,15 @@ export const Page = ({ country, onCountryChange }) => {
       </Grid>  
     </Container>  */}
     <Container maxWidth="lg" sx={{py: 4 }}>
-      <Grid container sx={{ alignItems: 'center', gap: '58px' }}>
+      <Grid container spacing={4} sx={{ justifyContent: 'space-between'}}>
         {/* Main article spanning the full width */}
-        <Grid xs={12} sx={{ width: '100%' }}>
+        <Grid sx={{ width: '100%' }}>
           <MainArticle article={mainArticle} />
         </Grid>
 
         {/* Secondary articles in a 3-column layout */}
         {otherArticles.slice(0, visibleCount).map((article, index) => (
-          <Grid xs={12} sm={6} md={4} key={index} >
+          <Grid flexGrow={1} key={index} size={{ xs: 12, sm: 6, md: 4 }}>
             <Article article={article} />
           </Grid>
         ))}
@@ -73,7 +73,7 @@ export const Page = ({ country, onCountryChange }) => {
 
     {visibleCount < otherArticles.length && (
       <Box sx={{ textAlign: 'center', mt: 2, mb: 2}}>
-        <Button variant="contained" onClick={() => setVisibleCount(prev => prev + 3)}>
+        <Button variant="contained" color='inherit' onClick={() => setVisibleCount(prev => prev + 3)}>
           Load More
         </Button>
       </Box>

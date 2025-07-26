@@ -16,7 +16,7 @@ export default function Article({ article }) {
     const dateOnly = publishedAt.split('T')[0];
   return (
 
-    <Card sx={{ borderRadius: 2, maxWidth: 345, color: 'inherit'}}>
+    <Card sx={{ borderRadius: 2, color: 'inherit'}}>
       <CardMedia
         component="img"
         height="140"
@@ -30,7 +30,7 @@ export default function Article({ article }) {
           WebkitBoxOrient: 'vertical',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
-          color: 'inherit'
+          color: 'text.primary'
         }} gutterBottom variant="h5" component="div">
           {title}
         </Typography>
@@ -48,7 +48,7 @@ export default function Article({ article }) {
         </Typography>
       </CardContent>
       <CardActions sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography sx={{ opacity: 0.9, fontSize: 14, mb: 2, ml:1 }}>
+        <Typography sx={{ opacity: 0.9, fontSize: 14, mb: 2, ml:1, color: 'text.primary' }}>
           {new Date(dateOnly).toLocaleDateString("en-GB", {
             day: 'numeric',
             month: 'long',
@@ -60,6 +60,7 @@ export default function Article({ article }) {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
+            color='inherit'
             sx={{ ml: "auto" }} 
           >
             Read More

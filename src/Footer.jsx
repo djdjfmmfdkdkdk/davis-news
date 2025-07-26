@@ -7,6 +7,8 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InfoIcon from '@mui/icons-material/Info';
+import { useLocation, Link } from "react-router-dom";
 
 function Footer() {
     return (
@@ -85,6 +87,14 @@ function Footer() {
             sx={{ color: 'white' }}
         >
             <LinkedInIcon />
+        </IconButton>
+        <IconButton
+            to='/about'
+            component={Link}
+            rel="noopener noreferrer"
+            sx={{ color: 'white' }}
+        >
+            <InfoIcon/>
         </IconButton>
       </Box>
       <Typography variant="caption" sx={{ mt: 2 }}>
