@@ -131,7 +131,7 @@ function Navbar({ country, onCountryChange }) {
                 letterSpacing: ".3rem",
               }}
             >
-              DCN
+              DNN
             </Typography>
           </Box>
 
@@ -202,7 +202,7 @@ function Navbar({ country, onCountryChange }) {
                 textDecoration: "none",
               }}
             >
-              DCN
+              DNN
             </Typography>
           </Box>
 
