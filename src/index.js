@@ -8,14 +8,6 @@ import {BrowserRouter as Router} from "react-router-dom";
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';  
 import ThemeContextProvider from './ThemeContextProvider';
 
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-  //   background: {
-  //     default: 'black'
-  //   }
-  }
-});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

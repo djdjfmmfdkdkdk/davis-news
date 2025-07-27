@@ -13,7 +13,10 @@ export default function Article({ article }) {
     const { urlToImage, title, description, publishedAt, url } = article;
     const imgSrc = urlToImage || PLACEHOLDER;
     const noDescription = description || "No description available.";
-    const dateOnly = publishedAt.split('T')[0];
+    const dateOnly = new Date(publishedAt.split('T')[0]).toLocaleDateString("en-GB", {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',});
   return (
 
     <Card sx={{ borderRadius: 2, color: 'inherit'}}>
@@ -49,11 +52,7 @@ export default function Article({ article }) {
       </CardContent>
       <CardActions sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography sx={{ opacity: 0.9, fontSize: 14, mb: 2, ml:1, color: 'text.primary' }}>
-          {new Date(dateOnly).toLocaleDateString("en-GB", {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          })}
+          {dateOnly}
         </Typography>
         <Button
             variant="contained"

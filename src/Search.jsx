@@ -1,8 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import React, { useEffect, useState } from 'react';
-import MainArticle from './MainArticle';
-import Article from './Article';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import SearchBar from './SearchBar';
@@ -13,7 +11,6 @@ import Button from '@mui/material/Button';
 
 export const Search = ({ country, onCountryChange }) => {
   console.log(country);
-  const { pathname } = useLocation(); 
   // const keyword = 'trump'
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -27,12 +24,12 @@ export const Search = ({ country, onCountryChange }) => {
     setKeyword(query);
   };
 
-    useEffect(() => {
-      setVisibleCount(3);
-    }, [keyword]);
 
     useEffect(() => {
         // console.log(id);
+
+      setVisibleCount(3);
+
       if (!keyword) {
         setOtherArticles([]);
         setLoading(false);
@@ -43,7 +40,7 @@ export const Search = ({ country, onCountryChange }) => {
       setOtherArticles([]);
 
       const fetchTop = async () => {
-        setLoading(true);
+        // setLoading(true);
         // const url = 'https://newsapi.org/v2/top-headlines?' + 'country=us' + `&category=${id}` + `&apiKey=${key}`;
         let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${key}`;
         if (keyword) url += `&q=${encodeURIComponent(keyword)}`;
@@ -62,7 +59,7 @@ export const Search = ({ country, onCountryChange }) => {
         }
       };
       fetchTop();
-      console.log(otherArticles);
+      // console.log(otherArticles);
     }, [keyword]);
 
   
@@ -80,7 +77,7 @@ export const Search = ({ country, onCountryChange }) => {
           {!loading && otherArticles.length > 0 && (
             <Grid container spacing={5} sx={{ flexDirection: 'column' }}>
               {otherArticles.slice(0, visibleCount).map((article, index) => (
-                <Grid item xs={12} sm={6} md={4} key={index}>
+                <Grid key={index}>
                   <SearchArticle article={article} />
                 </Grid>
               ))} 

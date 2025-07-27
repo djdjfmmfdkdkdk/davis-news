@@ -40,7 +40,7 @@ export default function SearchBar ({ onSearch }) {
                   triggerSearch();
                 }
               }}
-              InputProps={{
+              slotProps={{
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton

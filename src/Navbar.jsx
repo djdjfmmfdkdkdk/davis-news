@@ -39,9 +39,18 @@ const colorMap = {
   technology: "cyan",
 };
 
-
+const countryList = [
+    { code: "US", label: "🇺🇸 US" },
+    { code: "UK", label: "🇬🇧 UK" },
+    { code: "FR", label: "🇫🇷 FR" },
+    { code: "AU", label: "🇦🇺 AU" },
+    { code: "NZ", label: "🇳🇿 NZ" },
+    { code: "CA", label: "🇨🇦 CA" },
+  ];
 
 function Navbar({ country, onCountryChange }) {
+
+  const routeLocation = useLocation();
 
   const theme = useTheme();
 
@@ -49,7 +58,6 @@ function Navbar({ country, onCountryChange }) {
 
   const [anchorElNav, setAnchorElNav] = useState(null);
 
-  const routeLocation = useLocation();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -74,15 +82,6 @@ function Navbar({ country, onCountryChange }) {
     onCountryChange(code);
     handleCountryMenuClose();
   };
-
-  const countryList = [
-    { code: "US", label: "🇺🇸 US" },
-    { code: "UK", label: "🇬🇧 UK" },
-    { code: "FR", label: "🇫🇷 FR" },
-    { code: "AU", label: "🇦🇺 AU" },
-    { code: "NZ", label: "🇳🇿 NZ" },
-    { code: "CA", label: "🇨🇦 CA" },
-  ];
 
 
   // console.log(country + 'hi');

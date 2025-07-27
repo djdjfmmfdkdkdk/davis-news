@@ -20,7 +20,10 @@ export default function SearchArticle({ article }) {
     const imgSrc = urlToImage || PLACEHOLDER;
     const noDescription = description || "No description available.";
     const theme = useTheme();
-    const dateOnly = publishedAt.split('T')[0];
+    const dateOnly = new Date(publishedAt.split('T')[0]).toLocaleDateString("en-GB", {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',});
 
   return (
 
@@ -74,11 +77,7 @@ export default function SearchArticle({ article }) {
         }}
       >
         <Typography sx={{ fontSize: 14, color: 'text.secondary' }}>
-          {new Date(dateOnly).toLocaleDateString("en-GB", {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            })}
+          {dateOnly}
         </Typography>
         <Box sx={{ flex: 1 }} /> {/* Spacer pushes button to the right */}
         <Button
