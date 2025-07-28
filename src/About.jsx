@@ -75,7 +75,7 @@ export const About = () => {
                         Monday to Friday 0800-1730<br />
                         </Typography>
                 </Box>
-                <Box maxWidth="sm" sx={{ py: 4, ml: 2, flex: '1' }}>
+                <Box maxWidth="sm" sx={{  ml: 2, flex: '1' }}>
                     <Box
                         component="form"
                         noValidate
