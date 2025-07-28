@@ -1,6 +1,4 @@
 import { Box, IconButton, Typography } from '@mui/material';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -8,7 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InfoIcon from '@mui/icons-material/Info';
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Footer() {
     return (
@@ -98,7 +96,7 @@ function Footer() {
         </IconButton>
       </Box>
       <Typography variant="caption" sx={{ mt: 2 }}>
-        © 2025 DCN
+        © 2025 DNN
       </Typography>
     </Box>
 

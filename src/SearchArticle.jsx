@@ -1,16 +1,9 @@
-import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
 
 export default function SearchArticle({ article }) {
     const PLACEHOLDER =
@@ -19,7 +12,7 @@ export default function SearchArticle({ article }) {
     const { urlToImage, title, description, publishedAt, url } = article;
     const imgSrc = urlToImage || PLACEHOLDER;
     const noDescription = description || "No description available.";
-    const theme = useTheme();
+    // const theme = useTheme();
     const dateOnly = new Date(publishedAt.split('T')[0]).toLocaleDateString("en-GB", {
       day: 'numeric',
       month: 'long',
@@ -64,7 +57,7 @@ export default function SearchArticle({ article }) {
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {description}
+          {noDescription}
         </Typography>
       </Box>
 

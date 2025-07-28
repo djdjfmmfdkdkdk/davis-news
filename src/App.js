@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Navbar  from './Navbar';
 import { About } from './About';
 import { Page } from './Page';
 import { Search } from './Search';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   useLocation,
   Redirect
 } from "react-router-dom";
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';  
 import Box from '@mui/material/Box';
 import Footer from './Footer';
 
@@ -73,9 +71,4 @@ function App() {
 export default App;
 
 
-        {/* <Route path="/home" exact component={Page} /> 
-        <Route path="/search" component={Search} /> 
-        <Route path="/:id" render={({ match }) => (
-          <Page key={match.params.id} />
-        )}
-        />  */}
+      

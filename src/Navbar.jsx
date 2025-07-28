@@ -11,11 +11,10 @@ import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import { useLocation, Link } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import ApiIcon from "@mui/icons-material/Api";
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 import SunnyIcon from '@mui/icons-material/Sunny';
-import { createTheme, ThemeProvider, CssBaseline, useTheme } from '@mui/material';  
+import { useTheme } from '@mui/material';  
 import { ColorModeContext } from './ThemeContextProvider';
 
 
@@ -112,7 +111,6 @@ function Navbar({ country, onCountryChange }) {
             component={Link}
             to="/home"
             sx={{
-              display: { xs: "none", md: "flex" },
               alignItems: "center",
               textDecoration: "none",
               color: "inherit",

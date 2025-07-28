@@ -1,6 +1,5 @@
-import { useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import SearchBar from './SearchBar';

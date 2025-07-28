@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import MainArticle from './MainArticle';
 import Article from './Article';
 import Grid from '@mui/material/Grid';
